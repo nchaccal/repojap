@@ -15,11 +15,9 @@
   </head>
   <body>
     <script>
-      if (sessionStorage.length == 0) {
-        return window.location.assign("https://www.w3schools.com");
-      } else {
-
-      }
+      if (localStorage.length === 0) {
+        window.location.assign("login.html");
+      } else {}
     </script>
     <nav class="site-header sticky-top py-1 bg-dark">
       <div class="container d-flex flex-column flex-md-row justify-content-between">

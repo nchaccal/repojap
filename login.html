@@ -34,41 +34,66 @@
       padding: 15px;
       margin: auto;
     }
+
+    #login_btn, #rgstr_btn {
+      width:100%;
+    }
+
   </style>
 </head>
 
 <body class="text-center">
-
   <div class="container p-5">
-    <form class="signin">
-      <img class="mb-4" src="img/login.png" alt="" width="100%" >
-      <h1 class="h3 mb-3 font-weight-normal">Inicar sesión</h1>
-      <label for="inputEmail" class="sr-only">Email</label>
-      <input type="email" name="email"id="inputEmail" class="form-control" value="" placeholder="Ingrese su email" required autofocus>
-      <label for="inputPassword" class="sr-only">Contraseña</label>
-      <input type="password" name="password" id="inputPassword" class="form-control" value="" placeholder="Ingrese su contraseña" required>
-      
-      <button class="btn btn-lg btn-primary btn-block" type="submit" onsubmit="redireccionar()">Ingresar</button>
-      <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
-    </form>
 
-  </div>
-
-  <script>
-    function redireccionar() {
-      var usuario=document.signin.email.value; 
-      var password=document.signin.password.value; 
-
-      if (document.form.email.value=='EMAIL' && document.form.password.value=='CONTRASENA'){ 
-        location.replace("index.html"); 
-    } 
-    else{ 
-         alert("Porfavor ingrese un email y contraseña válidos."); 
-    }  
-     
-    }
-    </script>
+    <div id="swapper-first" style="display:block;">
+      <div class="container p-5">
+        <div id="login">
+        <form class="signin">
+          <img class="mb-4" src="img/login.png" alt="" width="100%" >
+          <h1 class="h3 mb-3 font-weight-normal">Iniciar sesión</h1>
     
+          <label for="userName" class="sr-only">Email</label>
+          <input type="email" id="userName" class="form-control" placeholder="Ingrese su email" required>
+    
+          <label for="userPw" class="sr-only">Contraseña</label>
+          <input type="password" id="userPw" class="form-control" placeholder="Ingrese su contraseña" required>
+    
+          <input id= "login_btn" type="submit" value="Iniciar sesión" onclick="check()"></br>
+          <p style="text-align:center; font-weight:bold;">
+            <a href="javascript:SwapDivsWithClick('swapper-first','swapper-other')">No tengo cuenta, registrame</a></p>
+          <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
+        </form>
+        </div>
+      </div>
+      </div>
+
+
+    <div id="swapper-other" style="display:none;">
+      <div id="registro">
+        <form class="signin">
+          <img class="mb-4" src="img/login.png" alt="" width="100%" >
+          <h1 class="h3 mb-3 font-weight-normal">Registro</h1>
+    
+          <label for="name" class="sr-only">Email</label>
+          <input type="email" id="name" class="form-control" placeholder="Ingrese su email" required>
+    
+          <label for="pw" class="sr-only">Contraseña</label>
+          <input type="password" id="pw" class="form-control" placeholder="Ingrese su contraseña" required>
+    
+          <input id="rgstr_btn" type="submit" value="Registrate" onclick="store()">
+          <p style="text-align:center; font-weight:bold;">
+            <a href="javascript:SwapDivsWithClick('swapper-first','swapper-other')">Ya tengo cuenta, iniciar sesión</a></p>
+          <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
+        </form>
+        </div>
+
+    </div>
+  </div>
+        
+        
+      
+      
+
   
   <script src="js/init.js"></script>
   <script src="js/login.js"></script>
