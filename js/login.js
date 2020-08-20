@@ -5,7 +5,7 @@
 //Si hay un usuario en localstorage, redirige al index y manda aviso de usuario ya conectado
 document.addEventListener("DOMContentLoaded", function(e){
         if(localStorage.length !== 0){
-                location.href="inicio";
+                location.href="index";
                 alert('Ya estás conectado');
               } else {}
 
@@ -29,7 +29,7 @@ function store(){
         }else{
             localStorage.setItem('name', name.value);
             localStorage.setItem('pw', pw.value);
-            location.href="inicio";
+            location.href="index";
             alert('Tu cuenta ha sido creada ¡Bienvenida a la tienda!');
         }
     }
@@ -44,7 +44,7 @@ function store(){
         var userPw = document.getElementById('userPw');
     
         if(userName.value == storedName && userPw.value == storedPw){
-                location.href="inicio";
+                location.href="index";
                 alert('Has iniciado sesión ¡Bienvenido de vuelta!');
             
         }else{
