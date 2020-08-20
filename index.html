@@ -15,6 +15,21 @@
   </head>
   <body> 
 
+    <script>
+        if(localStorage.length !== 0){
+          // Create a new text node called "Water"
+          var node1 = document.createElement("a");
+          node1.innerHTML = "CLICK ME";
+
+          // Get the first child node of an <ul> element
+          var item = document.getElementsByClassName("container d-flex flex-column flex-md-row justify-content-between").childNodes[5];
+
+          // Replace the first child node of <ul> with the newly created text node
+          item.replaceChild(node1, item.childNodes[5]);    
+
+              } else {}
+    </script>
+
     <nav class="site-header sticky-top py-1 bg-dark">
       <div class="container d-flex flex-column flex-md-row justify-content-between">
         <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
