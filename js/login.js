@@ -70,6 +70,40 @@ function SwapDivsWithClick(div1,div2)
    }
 }
 
+function showInIndex() {
 
+      if (localStorage.length !== 0) {
+      // Crea un div con el nombre informacion
+    var nuevoDiv = document.createElement("div"); 
+    nuevoDiv.id = 'informacion';
 
-        
+    // añade el elemento creado y su contenido al DOM 
+    document.body.appendChild(nuevoDiv); 
+
+    // Título del bloque
+    informacion.innerHTML = "<h1>Ejercicio 4.4 - Jóvenes a Programar</h1>" + "<hr>" + "<h2>Resultados:</h2>";
+
+    // Numero de enlaces de la pagina
+    var enlace = document.getElementsByTagName("a");
+    informacion.innerHTML = informacion.innerHTML + "<strong>Numero de enlaces: </strong>" + enlace.length + "<br/>";
+
+    // Direccion del penultimo enlace
+    var direccion = enlace[0].href;
+    informacion.innerHTML = informacion.innerHTML + "<strong>Dirección del penúltimo enlace: </strong>" + direccion + "<br/>";
+
+    // Numero de enlaces que apuntan a http://prueba
+    let numEnlaces = 0;
+    for(var i=0; i<enlace.length; i++) {
+        if(enlace[i].href == "http://prueba/") {
+        numEnlaces++;
+        }
+    }
+    informacion.innerHTML = informacion.innerHTML + "<strong>Numero de enlaces que apuntan a http://prueba/: </strong>" + numEnlaces + "<br/>";
+     
+
+    // Numero de enlaces del tercer párrafo
+    var parrafo = parrafo3.getElementsByTagName("a");
+    informacion.innerHTML = informacion.innerHTML + "<strong>Numero de enlaces en el tercer párrafo: </strong>" + parrafo.length + "<br/>";
+
+}
+}
