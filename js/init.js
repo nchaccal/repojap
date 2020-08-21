@@ -40,13 +40,51 @@ var getJSONData = function(url){
     });
 }
 
+//Probando Google Ouath! 
+
+var auth2;
+var googleUser; // The current user
+
+function init() {
+  gapi.load('auth2', function(){
+    auth2 = gapi.auth2.init({
+        client_id: 'your-app-id.apps.googleusercontent.com'
+    });
+    auth2.attachClickHandler('signin-button', {}, onSuccess, onFailure);
+
+    auth2.isSignedIn.listen(signinChanged);
+    auth2.currentUser.listen(userChanged); // This is what you use to listen for user changes
+});  
+
+var signinChanged = function (val) {
+    console.log('Signin state changed to ', val);
+};
+
+var onSuccess = function(user) {
+    console.log('Signed in as ' + user.getBasicProfile().getName());
+    // Redirect somewhere
+};
+
+var onFailure = function(error) {
+    console.log(error);
+};
+
+function signOut() {
+    auth2.signOut().then(function () {
+        console.log('User signed out.');
+    });
+}        
+
+var userChanged = function (user) {
+    if(user.getId()){
+      // Do something here
+    }
+};
+}
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-
-  if (localStorage.length === 0 || auth2.isSignedIn.get() === true) {
-    window.location.assign("login.html");
-  } else {}
 
 });
