@@ -45,42 +45,8 @@ var getJSONData = function(url){
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
 
-    var auth2;
-var googleUser; // The current user
-
-gapi.load('auth2', function(){
-    auth2 = gapi.auth2.init({
-        client_id: '879171387926-h5b1okbkhir4hd4p7bh4ch8mmm7pdl5a.apps.googleusercontent.com'
-    });
-    auth2.attachClickHandler('signin-button', {}, onSuccess, onFailure);
-
-    auth2.isSignedIn.listen(signinChanged);
-    auth2.currentUser.listen(userChanged); // This is what you use to listen for user changes
-});  
-
-var signinChanged = function (val) {
-    alert('Signin state changed to ', val);
-};
-
-var onSuccess = function(user) {
-    alert('Signed in as ' + user.getBasicProfile().getName());
-    // Redirect somewhere
-};
-
-var onFailure = function(error) {
-    alert(error);
-};
-
-function signOut() {
-    auth2.signOut().then(function () {
-        alert('User signed out.');
-    });
-}        
-
-var userChanged = function (user) {
-    if(user.getId()){
-      // Do something here
-    }
-};
+  if (localStorage.length === 0 || auth2.isSignedIn.get() === true) {
+    window.location.assign("login.html");
+  } else {}
 
 });
