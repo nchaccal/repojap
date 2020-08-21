@@ -51,7 +51,7 @@ function init() {
       client_id: '879171387926-h5b1okbkhir4hd4p7bh4ch8mmm7pdl5a.apps.googleusercontent.com',
       fetch_basic_profile: true,
       ux_mode: redirect,
-      redirect_uri: ''
+      redirect_uri: 'https://google.com'
     });
 
 
