@@ -40,32 +40,6 @@ var getJSONData = function(url){
     });
 }
 
-//Probando Google Ouath! 
-
-gapi.load('auth2', () => {
-  auth2 = gapi.auth2.init({
-    client_id: '879171387926-h5b1okbkhir4hd4p7bh4ch8mmm7pdl5a.apps.googleusercontent.com',
-    fetch_basic_profile: true,
-    ux_mode: redirect,
-    redirect_uri: 'https://google.com'
-  });
-
-  auth2.signIn().then(() => {
-    var profile = auth2.currentUser.get().getBasicProfile();
-    console.log('Image URL: ' + profile.getImageUrl());
-    console.log('ID: ' + profile.getId());
-    console.log('Full Name: ' + profile.getName());
-    console.log('Given Name: ' + profile.getGivenName());
-    console.log('Family Name: ' + profile.getFamilyName());
-    console.log('Email: ' + profile.getEmail());
-
-  }).catch((error) => {
-    console.error('Google Sign Up or Login Error: ', error)
-  });
-});
-
-
-
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
