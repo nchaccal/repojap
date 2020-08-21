@@ -40,21 +40,16 @@ var getJSONData = function(url){
     });
 }
 
-
+function isUserSignedIn() {
+  gapi.load('auth2', function() {
+      var isSignedIn = auth2.isSignedIn.get();
+      alert('is signed in? ', isSigned In)
+  })
+}
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-
-  // Crea un div con el nombre informacion
-var nuevoDiv = document.createElement("div"); 
-nuevoDiv.id = 'informacion';
-
-// añade el elemento creado y su contenido al DOM 
-document.body.appendChild(nuevoDiv); 
-
-// Título del bloque
-informacion.innerHTML = "<h1>Ejercicio 4.4 - Jóvenes a Programar</h1>" + "<hr>" + "<h2>Resultados:</h2>";
 
 });
