@@ -16,18 +16,9 @@
   <body> 
 
     <script>
-        if(localStorage.length !== 0){
-          // Create a new text node called "Water"
-          var node1 = document.createElement("a");
-          node1.innerHTML = "CLICK ME";
-
-          // Get the first child node of an <ul> element
-          var item = document.getElementsByClassName("container d-flex flex-column flex-md-row justify-content-between").childNodes[5];
-
-          // Replace the first child node of <ul> with the newly created text node
-          item.replaceChild(node1, item.childNodes[5]);    
-
-              } else {}
+      if (localStorage.length === 0) {
+        window.location.assign("login.html");
+      } else {}
     </script>
 
     <nav class="site-header sticky-top py-1 bg-dark">
@@ -37,8 +28,8 @@
         <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
         <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-        <a class="py-2 d-none d-md-inline-block" href="login.html">Usuario</a>
-      </div>
+        <a id="demo" class="py-2 d-none d-md-inline-block"href="login.html">Iniciar sesión</a>
+        </div>
     </nav>
     <main role="main">
       <section class="jumbotron text-center">
