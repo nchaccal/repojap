@@ -94,15 +94,28 @@
   <script src="js/login.js"></script>
   <script src="js/init.js"></script>
   <script>
-    function onSignIn(googleUser) {
+        function onSignIn(googleUser) {
       var profile = googleUser.getBasicProfile();
-      console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-      console.log('Image URL: ' + profile.getImageUrl());
-      console.log('Name: ' + profile.getName());
-      console.log('Email: ' + profile.getEmail());
-      var user_uname = profile.getName();
-      var user_email = profile.getEmail();
-      alert(user_uname);
+      var user_name = profile.getName();
+      alert(user_name);
+    }
+
+    function onLoad() {
+      gapi.load('auth2,signin2', function() {
+        var auth2 = gapi.auth2.init();
+        auth2.then(function() {
+          // Current values
+          var isSignedIn = auth2.isSignedIn.get();
+          var currentUser = auth2.currentUser.get();
+
+          if (!isSignedIn) {
+            // Rendering g-signin2 button.
+            gapi.signin2.render('google-signin-button', {
+              'onsuccess': 'onSignIn'  
+            });
+          }
+        });
+      });
     }
 
 </script>
