@@ -43,7 +43,7 @@ var getJSONData = function(url){
 function isUserSignedIn() {
   gapi.load('auth2', function() {
       var isSignedIn = auth2.isSignedIn.get();
-      console.log('is signed in? ', isSigned In)
+      alert('is signed in? ', isSigned In)
   })
 }
 
