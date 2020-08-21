@@ -15,7 +15,12 @@
   </head>
   <body> 
 
- 
+    <script>
+      if (localStorage.length === 0) {
+        window.location.assign("login.html");
+      } else {}
+    </script>
+
 
     <nav class="site-header sticky-top py-1 bg-dark">
       <div class="container d-flex flex-column flex-md-row justify-content-between">
@@ -24,7 +29,6 @@
         <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
         <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-        <div id="google" type="button"><img src="assets/login/google-logo.png"><span class="google-title">GOOGLE</span></div>
     </div>
     </nav>
     <main role="main">
