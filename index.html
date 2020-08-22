@@ -19,6 +19,11 @@
   </head>
   <body> 
 
+    <script>
+      if (localStorage.length === 0 || auth2.isSignedIn.get() === false) {
+        window.location.assign("login.html");
+      } else {}
+    </script>
 
 
     <nav class="site-header sticky-top py-1 bg-dark">
