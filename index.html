@@ -25,15 +25,6 @@
       } else {}
     </script>
 
-<script>
-  if (GoogleAuth.isSignedIn.get() === false) {
-    alert("funciona");
-  } else {}
-</script>
-
-
-
-
     <nav class="site-header sticky-top py-1 bg-dark">
       <div class="container d-flex flex-column flex-md-row justify-content-between">
         <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
@@ -125,17 +116,6 @@
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/init.js"></script>
-    <script>
-      function onSignIn(googleUser) {
-              // Useful data for your client-side scripts:
-              var profile = googleUser.getBasicProfile();
-              console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-              console.log('Full Name: ' + profile.getName());
-              console.log('Given Name: ' + profile.getGivenName());
-              console.log('Family Name: ' + profile.getFamilyName());
-              console.log("Image URL: " + profile.getImageUrl());
-              console.log("Email: " + profile.getEmail());
-            }
-      </script>
+    <script src="js/ouath2.js"></script>
   </body>
 </html>
