@@ -40,9 +40,22 @@ var getJSONData = function(url){
     });
 }
 
+function deleteItems() {
+  localStorage.clear();
+  alert("¡Vuelve pronto!");
+  window.location.assign("login.html");
+}
+
+function probarGoogle() {
+  alert(profile.getName())
+}
+
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
+
+      document.getElementById("p1").innerHTML = localStorage.getItem('name');
 
 });
