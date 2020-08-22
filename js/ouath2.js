@@ -40,17 +40,6 @@ function init() {
     });
   }
 
-  if (auth2.isSignedIn.get()) {
-    var profile = auth2.currentUser.get().getBasicProfile();
-    alert('ID: ' + profile.getId());
-    alert('Full Name: ' + profile.getName());
-    alert('Given Name: ' + profile.getGivenName());
-    alert('Family Name: ' + profile.getFamilyName());
-    alert('Image URL: ' + profile.getImageUrl());
-    alert('Email: ' + profile.getEmail());
-  }
-
-
 function onSignIn(googleUser) {
         // Useful data for your client-side scripts:
         var profile = googleUser.getBasicProfile();
