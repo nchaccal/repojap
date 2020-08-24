@@ -40,6 +40,7 @@ var getJSONData = function(url){
     });
 }
 
+//función que borra el localstorage del registro y redirige al login
 function deleteItems() {
   localStorage.clear();
   alert("¡Vuelve pronto!");
@@ -50,7 +51,8 @@ function deleteItems() {
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-
+      
+      //sustituye la palabra "usuario" en la barra de menú por el nombre de usuario
       document.getElementById("p1").innerHTML = localStorage.getItem('name');
 
 });
