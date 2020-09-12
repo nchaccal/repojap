@@ -141,7 +141,7 @@ a.custom-card:hover {
 }
 
 select {
-  font-family: 'FontAwesome';
+  font-family: 'FontAwesome', 'sans-serif';
   padding: 5px;
   color: orange;
 }
