@@ -139,3 +139,9 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+select {
+  font-family: 'FontAwesome', 'Second Font name';
+  padding: 5px;
+  color: orange;
+}

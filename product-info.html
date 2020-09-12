@@ -13,6 +13,7 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -31,16 +32,87 @@
     </li>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 13/09/2020) y Entrega 4 (Fecha de entrega: 20/09/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <main role="main">
+    <div class="container mt-5">
+      <div class="text-center p-4">
+        <h2>Información del producto</h2>
+        <p class="lead">Encontrarás aquí toda la información del producto.</p>
+        <p class="small alert-warning py-3"><strong>Nota: </strong>por simplicidad, cualquiera sea la categoría
+          seleccionada previamente, siempre se visualizará la presente: <strong>Autos</strong>.</p>
+      </div>
+      <h3 id="productInfoName"></h3>
+      <hr class="my-3">
+      <dl>
+        <dt>Precio</dt>
+        <dd>
+          <span id="productInfoCurrency"></span>
+          <span id="productInfoCost"></span>
+        </dd>
+
+        <dt>Descripción</dt>
+        <dd>
+          <p id="productInfoDescription"></p>
+        </dd>
+
+        <dt>Categoría</dt>
+        <dd>
+          <a a href="products.html" id="productInfoCategory"></a>
+        </dd>
+
+        <dt>Cantidad de vendidos</dt>
+        <dd>
+          <p id="productInfoSoldCount"></p>
+        </dd>
+
+        <dt>Imágenes ilustrativas</dt>
+        <dd>
+          <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
+          </div>
+        </dd>
+        
+        <dt>Productos relacionados</dt>
+        <hr class="my-3">
+        <dd>
+            <div class="row text-center text-lg-left pt-2" id="products-list"></div>
+        </dd>
+
+        <dt>Comentarios</dt>
+        <hr class="my-3">
+        <dd>
+          <div id="comments-list"></div>
+            <div id="commentBox">
+              
+              <label for="commentbox">Escribí tu comentario:</label><br>
+              <textarea name="comment" id="comentario" form="formulario" rows="4" cols="50" placeholder="Ingresá tu texto aquí..."></textarea>
+
+              <form id="formulario">
+                  
+                </textarea>
+                
+                <label for="nombreDeUsuario">Indicá tu nombre de usuario:</label>
+                <input type="email" id="nombreDeUsuario" value="usuario"><br>
+
+                <label for="calificacion">Indicá tu calificación:</label>
+                <select id="calificacion" name="calificacion"><br>
+                  <option value= 5>&#xf005;&#xf005;&#xf005;&#xf005;&#xf005;</option>
+                  <option value= 4>&#xf005;&#xf005;&#xf005;&#xf005;</option>
+                  <option value= 3>&#xf005;&#xf005;&#xf005;</option>
+                  <option value= 2>&#xf005; &#xf005;</option>
+                  <option value= 1>&#xf005; </option>
+                </select><br>
+
+                <input type="button" value="Enviar comentario" onclick= "saveComments()">
+
+              </form>
+            </div>
+        </dd>
+
+      </dl>
+      <a type="button" class="btn btn-light btn-lg btn-block" href="products.html">Volver al listado de productos</a>
     </div>
-  </div>
+  </main>
   <footer class="text-muted">
-    <div class="container">
+    <div class="contaisner">
       <p class="float-right">
         <a href="#">Volver arriba</a>
       </p>

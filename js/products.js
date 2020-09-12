@@ -41,10 +41,16 @@ function showProductsList(array){
     for(let i = 0; i < productsList.length; i++){
         let category = productsList[i];
 
-        if (((minCount == undefined) || (minCount != undefined && parseInt(category.cost) >= minCount)) &&
-            ((maxCount == undefined) || (maxCount != undefined && parseInt(category.cost) <= maxCount))){
+        let productName = category.name.toLowerCase();       
+        let productDescription = category.description.toLowerCase();   
 
-        htmlContentToAppend += '<div class="list-group-item list-group-item-action">\
+        if (
+            ((minCount == undefined) || (minCount != undefined && parseInt(category.cost) >= minCount)) &&
+            ((maxCount == undefined) || (maxCount != undefined && parseInt(category.cost) <= maxCount)) &&
+                ( (productDescription.indexOf(text)) !== -1 || (productName.indexOf(text)) !== -1) 
+            ){
+
+        htmlContentToAppend += '<a href="product-info.html" class="list-group-item list-group-item-action">\
         <div class="row"  onclick="showSpinner()">\
             <div class="col-3">\
                 <img src="' + category.imgSrc + '" alt="' + category.description + '" class="img-thumbnail">\
@@ -58,7 +64,7 @@ function showProductsList(array){
                 </div>\
             </div>\
         </div>\
-    </div>';
+    </a>';
         }
     document.getElementById("products-list").innerHTML = htmlContentToAppend;
     }    
@@ -72,7 +78,7 @@ function showProductsList(array){
     
         productsList = sortByPrice(currentSortCriteria, productsList);
     
-        //Muestro los autos ordenadas
+        //Muestro los autos ordenados
         showProductsList();
     }
 
@@ -104,7 +110,6 @@ document.addEventListener("DOMContentLoaded", function(e){
         minCount = document.getElementById("rangeFilterCountMin").value;
         maxCount = document.getElementById("rangeFilterCountMax").value;
 
-        console.log("hola")
         if ((minCount != undefined) && (minCount != "") && (parseInt(minCount)) >= 0){
             minCount = parseInt(minCount);
         }
@@ -118,20 +123,31 @@ document.addEventListener("DOMContentLoaded", function(e){
         else{
             maxCount = undefined;
         }
-
+        
         showProductsList();
     });
 
     document.getElementById("clearRangeFilter").addEventListener("click", function(){
-      document.getElementById("rangeFilterCountMin").value = "";
-      document.getElementById("rangeFilterCountMax").value = "";
+    document.getElementById("rangeFilterCountMin").value = "";
+    document.getElementById("rangeFilterCountMax").value = "";
+    document.getElementById("busqueda1").value = "";
 
-    
+      text = undefined;
       minCount = undefined;
       maxCount = undefined;
 
+        busqueda();
         showProductsList();
     
     });
 
 });
+
+//Funcion que obtiene el valor del search, lo transforma a minuscula y ejecuta la busqueda
+//cada vez que se presiona una tecla
+function busqueda() {
+    text = document.getElementById("busqueda1").value.toLowerCase();
+    showProductsList();
+    }
+document.getElementById("busqueda1").addEventListener("keyup", busqueda);
+busqueda();

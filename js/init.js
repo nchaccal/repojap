@@ -54,5 +54,8 @@ document.addEventListener("DOMContentLoaded", function(e){
       
       //sustituye la palabra "usuario" en la barra de menú por el nombre de usuario
       document.getElementById("p1").innerHTML = localStorage.getItem('name');
+      
+      //sustituye la palabra "usuario" en el input name del form
+      document.getElementById("nombreDeUsuario").value = localStorage.getItem('name');
 
 });
