@@ -141,7 +141,7 @@ a.custom-card:hover {
 }
 
 select {
-  font-family: 'FontAwesome', 'Second Font name';
+  font-family: 'FontAwesome';
   padding: 5px;
   color: orange;
 }
