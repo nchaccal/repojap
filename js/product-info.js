@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function(e){
             StoreProductinfo(productInfo.relatedProducts);
         }
 
-//este bloque de código llama al json de todos los productos para seleccionar los related-product
+//este bloque de código llama al json de todos los productos para seleccionar los related-products
 
         getJSONData(PRODUCTS_URL).then(function(resultObj){
         if (resultObj.status === "ok"){ 
