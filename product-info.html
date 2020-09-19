@@ -24,25 +24,38 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      
+      
       <li class="py-2 d-none d-md-inline-block" class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span id="p1" class="nav-label">Usuario</span> <span class="caret"></span></a>
         <ul class="dropdown-menu">
+            <li style="padding: 0px 20px 0px 30px"><a class="py-2 d-none d-md-inline-block" href="my-profile.html">Mi Perfil</a></li>
+            <li style="padding: 0px 20px 0px 30px"><a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a></li>
             <li style="padding: 0px 20px 0px 30px" onclick="deleteItems()"><a href="#">Cerrar sesión</a></li>
         </ul>
     </li>
+
     </div>
   </nav>
   <main role="main">
-    <div class="container mt-5">
+    
+  <div class="container mt-5">
+
       <div class="text-center p-4">
         <h2>Información del producto</h2>
-        <p class="lead">Encontrarás aquí toda la información del producto.</p>
-        <p class="small alert-warning py-3"><strong>Nota: </strong>por simplicidad, cualquiera sea la categoría
-          seleccionada previamente, siempre se visualizará la presente: <strong>Autos</strong>.</p>
-      </div>
+        <p class="lead">Encontrá aquí toda la información del producto.</p>
+        
+  </div>
+
       <h3 id="productInfoName"></h3>
       <hr class="my-3">
+
+  <div class="container">
+
+    <div class="row">
+        
+    <div class="col-sm">
+
       <dl>
         <dt>Precio</dt>
         <dd>
@@ -65,11 +78,34 @@
           <p id="productInfoSoldCount"></p>
         </dd>
 
+    </div>
+
+    <div class="col-sm">
         <dt>Imágenes ilustrativas</dt>
+        
         <dd>
-          <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
+          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            
+            <div class="carousel-inner " id="productImagesGallery">
+            </div>
+
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+
           </div>
         </dd>
+      </div>
+
+      </div>
+
+      </div>
         
         <dt>Productos relacionados</dt>
         <hr class="my-3">
