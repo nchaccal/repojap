@@ -3,6 +3,7 @@
 <html lang="en">
 
 <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -51,14 +52,146 @@
     </li>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 11/10/2020) y Entrega 6 (Fecha de entrega: 25/10/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+
+  <main role="main">
+    
+    <div class="container mt-5">
+  
+        <div class="text-center p-4">
+          <h2>Tu carrito de compra</h2>
+          <p class="lead">Aquí encontrarás todos los productos que vas a comprar.</p>
+          
     </div>
+
+    <h3 >Artículos</h3>
+    <hr class="my-3">
+
+    <div class="container">
+      
+      <div class="row">
+
+        <div id="cartImg" class="col">
+          <strong>Imagen</strong>
+        </div>
+        <div id="cartName" class="col">
+          <strong>Nombre</strong>
+        </div>
+        <div id="cartCount" class="col">
+          <strong>Costo</strong>
+        </div>
+        <div id="cartCurrency" class="col">
+          <strong>Cantidad</strong>
+        </div>
+        <div id="cartUnitCost" class="col">
+          <strong>Subtotal</strong>
+        </div>
+        
+
+      </div>
+
+    </div>
+    <hr class="my-3">
+
+    <div id="cartContent"></div>
+    
+ 
+    
+    
+    <div class="container">
+      
+      <div class="row row-no-gutters">
+
+          <div class="col-sm-3">
+          <h3>Tipo de envío</h3>
+          <br>
+
+          <form action="/action_page.php">
+            <input type="radio" id="premium" name="carrito">
+            <label for="premium">Premium 2 a 5 días (15%)</label><br>
+
+            <input type="radio" id="express" name="carrito">
+            <label for="express">Express 5 a 8 días (7%)</label><br> 
+
+            <input type="radio" id="standart" name="carrito">
+            <label for="standart">Standart 12 a 15 días(5%)</label><br>
+
+          </div>
+
+          <div class="col-sm-3">
+            <h3>Dirección de envío</h3>
+            <br>
+
+
+            <label for="calle">Calle</label>
+            <input type="text" id="calle" name="carrito"><br>
+
+            <label for="numero">Nro</label>
+            <input type="text" id="numero" name="carrito"><br>
+
+            <label for="esquina">Esquina</label>
+            <input type="text" id="esquina" name="carrito"><br>
+
+          </div>
+
+          <div class="col-sm-6">
+            <h3>Costos</h3>
+            
+            <div class="card">
+              <ul class="list-group list-group-flush">
+
+                <div class="row">
+                  <div class="col">
+                     <li class="list-group-item">Subtotal</li>
+                  </div>
+                  <div class="col">
+                    <li class="list-group-item" id="subtotalGlobal">0</li>
+                 </div>
+                </div>
+
+                <div class="row">
+                  <div class="col">
+                     <li class="list-group-item">Costo de envío</li>
+                  </div>
+                  <div class="col">
+                    <li class="list-group-item" id="shippingCost">0</li>
+                 </div>
+                </div>
+
+                <div class="row">
+                  <div class="col">
+                     <li class="list-group-item">Total ($)</li>
+                  </div>
+                  <div class="col">
+                    <li class="list-group-item" id="totalGlobal">0</li>
+                 </div>
+                </div>
+
+              </ul>
+            </div>
+
+
+          </div>
+
+
+    </div>
+
+      <div class="container my-3 bg-light">
+        <div class="col-md-12 text-center">
+          <input type="submit" value="Finalizar compra">
+        </div>
+      </div>
+      
+    </form>
+
   </div>
+
+
+
+
+
+
+
+    
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
