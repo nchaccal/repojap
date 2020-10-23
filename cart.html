@@ -32,6 +32,7 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/dropzone.css" rel="stylesheet">
+  
 </head>
 
 <body>
@@ -85,6 +86,9 @@
         <div id="cartUnitCost" class="col">
           <strong>Subtotal</strong>
         </div>
+        <div id="deleteProducts" class="col">
+          <strong>Eliminar</strong>
+        </div>
         
 
       </div>
@@ -99,14 +103,15 @@
     
     <div class="container">
       
-      <div class="row row-no-gutters">
+      <div class="row">
 
-          <div class="col-sm-3">
+          <div class="col">
           <h3>Tipo de envío</h3>
           <br>
 
-          <form action="/action_page.php">
-            <input type="radio" id="premium" name="carrito">
+
+          <form id="finalizarCompra">
+            <input type="radio" id="premium" name="carrito" required>
             <label for="premium">Premium 2 a 5 días (15%)</label><br>
 
             <input type="radio" id="express" name="carrito">
@@ -117,23 +122,33 @@
 
           </div>
 
-          <div class="col-sm-3">
-            <h3>Dirección de envío</h3>
-            <br>
+          <div class="col">
+            <h3>Dirección</h3>
+ 
 
 
             <label for="calle">Calle</label>
-            <input type="text" id="calle" name="carrito"><br>
+            <input type="text" id="calle" name="carrito" required><br>
 
-            <label for="numero">Nro</label>
-            <input type="text" id="numero" name="carrito"><br>
-
-            <label for="esquina">Esquina</label>
-            <input type="text" id="esquina" name="carrito"><br>
+            <label for="numero">Nro</label><br>
+            <input type="text" id="numero" name="carrito" required><br>
 
           </div>
 
-          <div class="col-sm-6">
+          <div class="col">
+            <h3>Método de pago</h3>
+            <br>
+
+
+            <span>Seleccione un método de pago de la ventana emergente</span>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop" id="paymentMethod">
+              Método de pago
+            </button>
+  
+
+          </div>
+
+          <div class="col-4">
             <h3>Costos</h3>
             
             <div class="card">
@@ -173,11 +188,15 @@
           </div>
 
 
+
+
+
+
     </div>
 
       <div class="container my-3 bg-light">
         <div class="col-md-12 text-center">
-          <input type="submit" value="Finalizar compra">
+          <input type="submit" class="btn btn-success" value="Finalizar compra">
         </div>
       </div>
       
@@ -185,8 +204,16 @@
 
   </div>
 
+  <script>
 
+  document.getElementById("finalizarCompra").addEventListener("submit", myFunction);
+  function myFunction(event) {
+    if (sessionStorage.length !== 0) {
+      event.preventDefault()
 
+  }
+}
+</script>
 
 
 
