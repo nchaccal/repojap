@@ -192,10 +192,10 @@ function showModal () {
             document.body.appendChild(btn);
 
 
-            //función que carga un valor en el sessionstorage para luego ejecutar una función que muestre un mensaje    
+            //Función que se ejecuta luego de cargar los datos de la tarjeta de crédito y darle al botón enviar. Crea una variable en el sessionstorage para usar en la función alertsubmit
             document.getElementById("myForm").addEventListener("submit", myFunction);
                 function myFunction() {
-                sessionStorage.setItem("key", "1");
+                sessionStorage.setItem("llave", "1");
             }
         });
     }
@@ -263,11 +263,11 @@ function changeTotalGlobal () {
 }
 
 function alertsSubmit() {
-    //función que muestra la alerta de la tarjeta de crédito luego de recargar la página
-    if (sessionStorage.length !== 0) {
+    //función que muestra la alerta de la tarjeta de crédito luego de recargar la página y no antes
+    if (sessionStorage.getItem("llave")) {
         var alertCard = document.createElement("div");
             alertCard.innerHTML = `
-            <div class="alert alert-warning alert-dismissible fade show" role="alert" style="width:80%">
+            <div class="alert alert-secondary alert-dismissible fade show" role="alert" style="width:80%">
             <center><strong>¡Datos recibidos!</strong> Hemos recibido los datos de tu tarjeta de crédito. Ahora podés finalizar la compra</center>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -275,13 +275,39 @@ function alertsSubmit() {
             </div>
             `;
         document.body.appendChild(alertCard);
+        //a su vez creo una llave en el sessionstorage para decirle a la página que ya puede procesar la compra porque se recibieron los datos de la tarjeta de crédito. Y borra la llave inicial
+        sessionStorage.setItem("llave2", "2");
+        sessionStorage.removeItem('llave');
 
-      } 
-
-        sessionStorage.removeItem("key");
-    
+      }    
 }
 
+function finalizarCompra() {
+//esta función muestra una alerta del json que está en init con el fetch. Solo se ejecuta cuando se genera la llave 2 en el html, que a su vez se genera si se hace click en el botón finalizar compra
+    getJSONData(CART_BUY_URL).then(function(resultObj){
+        if (resultObj.status === "ok")
+        {
+            cartBuy = resultObj.data;
+
+                if (sessionStorage.getItem("llave3")){ 
+                var compraCompleta = document.createElement("div");
+                compraCompleta.innerHTML = `
+                <div class="alert alert-primary alert-dismissible fade show" role="alert" style="width:80%">
+                <center>`+ cartBuy.msg +`</center>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                `;
+                document.body.appendChild(compraCompleta);
+                //al finalizar borra la llave del sessionstorage para que no se repita el mensaje si se carga la página
+                sessionStorage.removeItem('llave3');
+                }
+ 
+        }
+    });
+}
+    
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
@@ -300,13 +326,12 @@ document.addEventListener("DOMContentLoaded", function(e){
             changeTotalGlobal (cartInfo);
             showModal (cartInfo);
             alertsSubmit(cartInfo);
+            finalizarCompra(cartInfo);
 
 }
 
 
 });
-
-
 
 
 

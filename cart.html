@@ -205,11 +205,27 @@
   </div>
 
   <script>
-
+//este script bloquea el botón de finalizar compra si no hay ningún valor en sessionstorage
   document.getElementById("finalizarCompra").addEventListener("submit", myFunction);
   function myFunction(event) {
-    if (sessionStorage.length !== 0) {
-      event.preventDefault()
+//si usuario colocó datos de su tarjeta de crédito, se agrega un nuevo valor al sesionstorage
+    if (sessionStorage.getItem("llave2")) {
+      sessionStorage.setItem("llave3", "3");
+      sessionStorage.removeItem('llave2');
+
+//si el usuario no colocó datos de su tarjeta de crédito, no hace submit la compra y manda alerta      
+  } else {
+    event.preventDefault()
+      var finalizarCompra = document.createElement("div");
+      finalizarCompra.innerHTML = `
+            <div class="alert alert-danger alert-dismissible fade show" role="alert" style="width:80%">
+            <center><strong>¡Debes seleccionar un método de pago!</strong> Debes seleccionar un método de pago para poder finalizar la compra</center>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            `;
+        document.body.appendChild(finalizarCompra);
 
   }
 }
