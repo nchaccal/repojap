@@ -65,7 +65,8 @@ function removeProducts () {
 
         document.getElementsByTagName("button")[i].addEventListener("click", function(){     
             document.querySelectorAll(".row.products")[i].remove();
-            changeTotalGlobal () 
+            changeTotalGlobal ();
+
 
             });
         }
@@ -211,6 +212,7 @@ for(let i = 0; i < cartInfo.articles.length; i++){
     }
 }
 
+//función para cambiar el valor del envío
 function changeShippingPrice () {
     //para calcular el precio de envío
     for(let i = 0; i < 3; i++){
@@ -235,7 +237,7 @@ function changeShippingPrice () {
 }
 
 
-
+//función para actualizar todos los precios
 function changeTotalGlobal () {
     let subtotalFinal = 0;
 
@@ -262,6 +264,7 @@ function changeTotalGlobal () {
 
 }
 
+//mensaje de alerta al completar los datos de la tarjeta de crédito
 function alertsSubmit() {
     //función que muestra la alerta de la tarjeta de crédito luego de recargar la página y no antes
     if (sessionStorage.getItem("llave")) {
@@ -282,6 +285,7 @@ function alertsSubmit() {
       }    
 }
 
+//mensaje de alerta al terminar la compra
 function finalizarCompra() {
 //esta función muestra una alerta del json que está en init con el fetch. Solo se ejecuta cuando se genera la llave 2 en el html, que a su vez se genera si se hace click en el botón finalizar compra
     getJSONData(CART_BUY_URL).then(function(resultObj){
@@ -293,7 +297,7 @@ function finalizarCompra() {
                 var compraCompleta = document.createElement("div");
                 compraCompleta.innerHTML = `
                 <div class="alert alert-primary alert-dismissible fade show" role="alert" style="width:80%">
-                <center>`+ cartBuy.msg +`</center>
+                <center>¡Felicidades! ` + cartBuy.msg +`</center>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>

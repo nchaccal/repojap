@@ -76,11 +76,23 @@
           <img class="mb-4" src="img/login.png" alt="" width="100%" >
           <h1 class="h3 mb-3 font-weight-normal">Registro</h1>
     
-          <label for="name" class="sr-only">Email</label>
-          <input type="email" id="name" class="form-control" placeholder="Ingrese su email" required>
+          <label for="correoElectronico" class="sr-only">Email</label>
+          <input type="email" id="correoElectronico" class="form-control" placeholder="Ingrese su email" required>
     
           <label for="pw" class="sr-only">Contraseña</label>
           <input type="password" id="pw" class="form-control" placeholder="Ingrese su contraseña" required>
+
+          <label for="nombres" class="sr-only">Nombres</label>
+          <input type="text" id="nombres" class="form-control" placeholder="Ingrese sus nombres" required>
+
+          <label for="apellidos" class="sr-only">Apellidos</label>
+          <input type="text" id="apellidos" class="form-control" placeholder="Ingrese sus apellidos" required>
+
+          <label for="fechaNacimiento" class="sr-only">Fecha de nacimiento</label>
+          <input type="date" id="fechaNacimiento" class="form-control" placeholder="Ingrese su fecha de nacimiento" required>
+
+          <label for="telefono" class="sr-only">Número de teléfono</label>
+          <input type="text" id="telefono" class="form-control" placeholder="Ingrese su número de teléfono" required>
     
           <input id="rgstr_btn" type="submit" value="Registrate" onclick="store()">
           <p style="text-align:center; font-weight:bold;">

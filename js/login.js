@@ -14,21 +14,26 @@ document.addEventListener("DOMContentLoaded", function(e){
 //Almacena los valores de name y pw del form registro en localstorage y redirige al index.html
 function store(){
 
-        var name = document.getElementById('name');
+        var correoElectronico = document.getElementById('correoElectronico');
         var pw = document.getElementById('pw');
     
-        if(name.value.length == 0){
+        if(correoElectronico.value.length == 0){
             alert('Por favor ingresa un email');
     
         }else if(pw.value.length == 0){
             alert('Por favor ingresa una contraseña');
     
-        }else if(name.value.length == 0 && pw.value.length == 0){
+        }else if(correoElectronico.value.length == 0 && pw.value.length == 0){
             alert('Por favor ingresá un email y una contraseña');
     
         }else{
-            localStorage.setItem('name', name.value);
+            localStorage.setItem('correoElectronico', correoElectronico.value);
             localStorage.setItem('pw', pw.value);
+            localStorage.setItem('nombres', nombres.value);
+            localStorage.setItem('apellidos', apellidos.value);
+            localStorage.setItem('fechaNacimiento', fechaNacimiento.value);
+            localStorage.setItem('telefono', telefono.value);
+
             location.href="index";
             alert('Tu cuenta ha sido creada ¡Bienvenida a la tienda!');
         }
@@ -37,7 +42,7 @@ function store(){
 /*Verifica que los datos ingresados en form login coincidan con los del registro en localstorage y redirige al index*/
 
         function check(){
-        var storedName = localStorage.getItem('name');
+        var storedName = localStorage.getItem('correoElectronico');
         var storedPw = localStorage.getItem('pw');
     
         var userName = document.getElementById('userName');
